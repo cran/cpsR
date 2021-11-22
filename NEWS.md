@@ -1,3 +1,7 @@
+# cpsR 0.4.5
+
+* Documentation updates and improvements.
+
 # cpsR 0.4.4
 
 * Simplified examples based on feedback from CRAN.

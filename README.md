@@ -5,10 +5,14 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/cpsR)](https://CRAN.R-project.org/package=cpsR)
 [![R-CMD-check](https://github.com/matt-saenz/cpsR/workflows/R-CMD-check/badge.svg)](https://github.com/matt-saenz/cpsR/actions)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![CRAN
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/cpsR)](https://cran.r-project.org/package=cpsR)
 
 <!-- badges: end -->
 
@@ -30,35 +34,63 @@ or certified by the Census Bureau.
 To install cpsR, run the following code:
 
 ``` r
+install.packages("cpsR")
+```
+
+To install the development version of cpsR, run the following code:
+
+``` r
 # install.packages("devtools")
 devtools::install_github("matt-saenz/cpsR")
 ```
 
-Next, register for a [Census API
-key](https://api.census.gov/data/key_signup.html) if you don’t already
-have one. Once you have your key, store it in an environment variable
-named `CENSUS_API_KEY` for safe and easy use. You can do this in two
-steps:
+## Census API key
 
-1.  Run `usethis::edit_r_environ()` to open your `.Renviron` file
-2.  Add `CENSUS_API_KEY="your_key_here"` to your `.Renviron` file
+In order to use cpsR functions, you must supply a [Census API
+key](https://api.census.gov/data/key_signup.html) in one of two ways:
 
-This allows cpsR functions to automatically add your key to Census API
-requests (via `Sys.getenv("CENSUS_API_KEY")`). Compared to manually
-supplying your key with the `key` argument, using env var
-`CENSUS_API_KEY` has two main benefits:
+1.  Using the `key` argument (manually)
+2.  Using environment variable `CENSUS_API_KEY` (automatically)
+
+Using environment variable (or env var, for short) `CENSUS_API_KEY` is
+strongly recommended for two reasons:
 
 1.  Saves you from having to copy-paste your key around
 2.  Allows you to avoid including your key in scripts
 
-Number two is particularly important if you plan to share your scripts
-with others or post your scripts online (e.g., on GitHub).
+It is important to avoid including your key in scripts if you plan to
+share your code with others (like in the [example](#example) below)
+since you should keep your key secret.
+
+You can set up env var `CENSUS_API_KEY` in two steps:
+
+First, open your `.Renviron` file. You can do so by running:
+
+``` r
+# install.packages("usethis")
+usethis::edit_r_environ()
+```
+
+Second, add your Census API key to your `.Renviron` file like so:
+
+    CENSUS_API_KEY="your_key_here"
+
+This enables cpsR functions to automatically look up your key by
+running:
+
+``` r
+Sys.getenv("CENSUS_API_KEY")
+```
 
 ## Example
 
 ``` r
 library(cpsR)
 library(dplyr)
+library(purrr)
+
+
+# Simple use of the basic monthly CPS
 
 sep21 <- get_basic(
   year = 2021,
@@ -93,4 +125,16 @@ sep21 %>%
 #>    pop16plus   employed epop_ratio
 #>        <dbl>      <dbl>      <dbl>
 #> 1 261765646. 154025931.      0.588
+
+
+# Pulling multiple years of CPS ASEC microdata
+
+asec <- map_dfr(2020:2021, get_asec, vars = c("h_year", "marsupwt"))
+
+count(asec, h_year, wt = marsupwt)
+#> # A tibble: 2 × 2
+#>   h_year          n
+#>    <int>      <dbl>
+#> 1   2020 325268182.
+#> 2   2021 326195440.
 ```

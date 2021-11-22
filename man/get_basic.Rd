@@ -15,7 +15,8 @@ get_basic(
 )
 }
 \arguments{
-\item{year}{Year of data to retrieve.}
+\item{year}{Year of data to retrieve. Years 1994 to 2021 are currently
+supported.}
 
 \item{month}{Month of data to retrieve (specified as a number).}
 
@@ -26,8 +27,8 @@ returned data.}
 
 \item{key}{\href{https://api.census.gov/data/key_signup.html}{Census API key}.
 Defaults to environment variable \code{CENSUS_API_KEY}. See the
-\href{https://github.com/matt-saenz/cpsR#readme}{README} for info on how
-(and why) to set up env var \code{CENSUS_API_KEY}.}
+\href{https://github.com/matt-saenz/cpsR#census-api-key}{README} for info
+on how (and why) to set up env var \code{CENSUS_API_KEY}.}
 
 \item{show_url}{If \code{TRUE}, show the URL the request was sent to
 (with \code{key} suppressed). Defaults to \code{FALSE}.}
@@ -52,7 +53,6 @@ microdata using the Census API.
 }
 \examples{
 \dontrun{
-
 sep21 <- get_basic(
   year = 2021,
   month = 9,
