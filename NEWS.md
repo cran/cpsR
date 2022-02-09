@@ -1,3 +1,7 @@
+# cpsR 0.5.0
+
+* `get_basic()` now supports basic monthly CPS microdata for 2022.
+
 # cpsR 0.4.5
 
 * Documentation updates and improvements.
