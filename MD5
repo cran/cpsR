@@ -1,9 +1,9 @@
-eaf6703f28e2cc4664b94ed4c25fe2be *DESCRIPTION
+885230877f2ddb8a9f2fb19e88ef0927 *DESCRIPTION
 99b985e5cda397a2615fd9f04a7f82da *LICENSE
 b56f0ff36f02e3e019cf40610dc924c2 *NAMESPACE
-a63a657c05fbd797083f7845dcddd2d3 *NEWS.md
-1e79d75922b18efd9eaa4f144c720145 *R/get_data.R
-af17078e45bffd67333a08b21babd6d5 *R/utils.R
-9e944e36ae42cae7ffc850d86a4bc9fb *README.md
-bbae1b7e31b1032b76dc5317820b53ee *man/get_asec.Rd
-feb4b9c38a2d2a40197734ee89a0ba72 *man/get_basic.Rd
+e0acecfbf70851cdab3b5e579f07f7de *NEWS.md
+d1ed509e9504af896588710947ed8433 *R/get_data.R
+cd2a6ae34aa9669c9febf55214d3a22b *R/utils.R
+d4127621a25dc457fee19bf87afe3fc3 *README.md
+2d84f744d4beefb078bc9ed2ca8f4d6d *man/get_asec.Rd
+2f8f897b4fbbc89c47a4796fecec40b6 *man/get_basic.Rd
