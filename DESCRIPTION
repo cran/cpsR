@@ -1,6 +1,6 @@
 Package: cpsR
 Title: Load CPS Microdata into R Using the 'Census Bureau Data' API
-Version: 0.6.0
+Version: 0.7.0
 Authors@R: 
     person(given = "Matt",
            family = "Saenz",
@@ -17,8 +17,8 @@ Encoding: UTF-8
 RoxygenNote: 7.2.1
 Imports: httr, jsonlite, tibble
 NeedsCompilation: no
-Packaged: 2022-09-13 02:08:48 UTC; mattsaenz
+Packaged: 2022-12-28 20:18:06 UTC; mattsaenz
 Author: Matt Saenz [aut, cre]
 Maintainer: Matt Saenz <mattsaenz165@gmail.com>
 Repository: CRAN
-Date/Publication: 2022-09-13 02:30:05 UTC
+Date/Publication: 2023-01-05 17:50:11 UTC
